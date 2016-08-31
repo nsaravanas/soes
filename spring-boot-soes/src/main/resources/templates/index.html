@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<title>SOES</title>
+</head>
+<body>
+
+	<div align="center">
+		<h1>Stock Order Execution System</h1>
+	</div>
+	<hr />
+
+	Download Report :
+	<a th:href="@{/download}"><span th:text="report"></span></a>
+	<br /> Upload Input :
+	<form th:action="@{/upload}" method="post"
+		enctype="multipart/form-data">
+		<input type="file" name="myFile" /> <input type="submit" />
+	</form>
+	<br />
+	<hr />
+	<div th:if="${message}">
+		<div align="center" class="alert alert-info" th:text="${message}"></div>
+	</div>
+	<div align="left">
+		<h2>Stock Order Execution System - Place Order</h2>
+
+		<form th:action="@{/}" th:object="${order}" method="post">
+			<table>
+				<tr>
+					<td>Stock Id :</td>
+					<td><input type="number" th:field="*{stockId}" /></td>
+					<td th:if="${#fields.hasErrors('stockId')}" th:errors="*{stockId}">Name
+						Error</td>
+				</tr>
+				<tr>
+					<td>Side :</td>
+					<td><input type="text" th:field="*{side}" /></td>
+					<td th:if="${#fields.hasErrors('side')}" th:errors="*{side}">Name
+						Error</td>
+				</tr>
+				<tr>
+					<td>Company :</td>
+					<td><input type="text" th:field="*{company}" /></td>
+					<td th:if="${#fields.hasErrors('company')}" th:errors="*{company}">Name
+						Error</td>
+				</tr>
+				<tr>
+					<td>Quantity :</td>
+					<td><input type="text" th:field="*{quantity}" /></td>
+					<td th:if="${#fields.hasErrors('quantity')}"
+						th:errors="*{quantity}">Name Error</td>
+				</tr>
+				<tr>
+					<td><button type="submit">Submit</button></td>
+					<td><button type="reset">Reset</button></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<hr />
+	<div align="center">
+		<h2>Stock Order Execution System - Order List</h2>
+	</div>
+	<div align="center">
+		<table border="1" style="width: 80%">
+			<tr>
+				<th>STOCK_ID</th>
+				<th>SIDE</th>
+				<th>COMPANY</th>
+				<th>QUANTITY</th>
+				<th>REMAINING_QUANTITY</th>
+				<th>STATUS</th>
+			</tr>
+			<tr th:each="order : ${orders}">
+				<td width="20%" th:text="${order.stockId}"></td>
+				<td width="20%" th:text="${order.side}"></td>
+				<td width="20%" th:text="${order.company}"></td>
+				<td width="20%" th:text="${order.quantity}"></td>
+				<td width="20%" th:text="${order.remainingQuantity}"></td>
+				<td width="20%" th:text="${order.status}"></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
