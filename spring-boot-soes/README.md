@@ -6,7 +6,7 @@
 
 ##Installation
 
-`java -jar search-engine-{version}.jar`
+`java -jar spring-boot-soes-{version}.jar`
 
 ##Built With
 
