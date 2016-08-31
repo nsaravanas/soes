@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.sahajsoft.soes</groupId>
+	<groupId>com.saravana.soes</groupId>
 	<artifactId>spring-boot-soes</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
@@ -18,7 +18,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<start-class>com.sahajsoft.soes.StockOrderExecutionSystem</start-class>
+		<start-class>com.saravana.soes.StockOrderExecutionSystem</start-class>
 		<java.version>1.8</java.version>
 		<guava.version>16.0.1</guava.version>
 	</properties>
