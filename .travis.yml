@@ -1,0 +1,10 @@
+language: java
+sudo: false
+jdk:
+  - oraclejdk8
+before_script: cd spring-boot-soes
+script: mvn clean install -DskipTests=false -Dmaven.javadoc.skip=true
+#deploy:
+#  provider: heroku
+#  api_key:
+#    secure: 0634493f-ab0c-4463-9f1d-b996f813f88b
